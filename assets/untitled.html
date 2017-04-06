@@ -1,0 +1,37 @@
+var name;
+var email;
+var index = 0;
+
+$(document).ready(function(){
+	$("#name").click(function(){
+		name = prompt("Seu nome");
+	});
+
+	$("#email").click(function(){
+		email = prompt("Seu email");
+	});
+
+	$("#cadastrar").click(function(){
+		var content = "Usuário número: " + index + "\n";
+		content += "Nome: " + name + "\n";
+		content += "E-mail: " + email + "\n";
+
+		var existentContent = $("#area").val();
+		$("#area").val(existentContent + "\n" + content);
+
+		clearValues();
+		index++;
+	});
+
+	var hoje = new Date();
+	var dia = hoje.getDate();
+	var mes = hoje.getMonth() + 1;
+	var ano = hoje.getYear() + 1900;
+
+	$("#date").html("Hoje: " + dia + "/" + mes + "/" + ano);
+});
+
+function clearValues() {
+	name = "";
+	email = "";
+}
